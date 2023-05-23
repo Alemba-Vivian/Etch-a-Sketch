@@ -1,5 +1,34 @@
 let gridContainer = document.querySelector('.grid-container');
-createGrid(64);
+let promptMessage = document.getElementById('popup');
+let validity = document.getElementById('validity');
+
+//Default grid
+createGrid(16);
+
+//when the user clicks the button, a prompt message is shown
+promptMessage.addEventListener('click', () =>{
+    let size = createPrompt();
+    createGrid(size);
+});
+
+//prompt message to get size from the user
+function createPrompt(){
+    let userInput = prompt("Enter the size of the grid");
+    if(userInput===null || userInput==="" ){
+        validity.style.color ='red';
+        validity.textContent =`Please enter the size of the grid`;
+    }else if(userInput <= 0 || userInput >= 100){
+        validity.style.color ='red';
+        validity.textContent =`Please enter a size range between 2 and 99`;
+    }else{
+        validity.style.color ='#3EB489';
+        validity.textContent=`Draw now `;
+        return userInput;
+    }
+  
+    
+}
+
 
 
 //creating a function that creates the grid squares
@@ -17,6 +46,4 @@ for(let i =0;i<numDivs; i++){
     div.style.backgroundColor ='red';
     gridContainer.insertAdjacentElement('beforeend', div);
 }
-    
-
 }
