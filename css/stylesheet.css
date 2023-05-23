@@ -29,7 +29,7 @@ color: #3EB489;
     border: 5px solid #3EB489;
    
 }
-.grid{
+.grid-container{
     display: grid;
     width: 400px;
     height: 400px;
