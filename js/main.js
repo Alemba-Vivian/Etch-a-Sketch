@@ -4,9 +4,26 @@ let validity = document.getElementById('validity');
 let buttonReset = document.getElementById('reset');
 //default color
 let color ='black';
+//checking if the user clicked on the button
+
 
 //Default grid
 createGrid(16);
+
+// //checking if the user clicked on the button
+// document.querySelector('body').addEventListener('click', (e)=>{
+//     if(e.target.tagName !="BUTTON"){
+//         click =!click;
+//         let sketch = document.getElementById('sketch');
+//         if(click){
+//             sketch.textContent ='You are allowed to sketch';
+//         }else{
+//             sketch.textContent = "You can't Sketch here"
+//         }
+    
+
+//     }
+// })
 
 //reset function
 buttonReset.addEventListener('click', resetDivs);
@@ -27,8 +44,6 @@ function createPrompt(){
         validity.style.color ='red';
         validity.textContent =`Please enter a size range between 2 and 99`;
     }else{
-        validity.style.color ='#3EB489';
-        validity.textContent=`Draw now `;
         return userInput;
     }
   }
@@ -51,6 +66,7 @@ for(let i =0;i<numDivs; i++){
 }
 
 function colorChange(){
+    
     if(color ==='random'){
         let red = Math.floor(Math.random() * 256);
         let green = Math.floor(Math.random() * 256);
@@ -63,9 +79,10 @@ function colorChange(){
         this.style.backgroundColor ='blue';
     }else{
         this.style.backgroundColor = 'black';
-    }
-
+    
 }
+}
+
 function setColor(colorChoice){
     color = colorChoice;
 
